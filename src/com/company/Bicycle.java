@@ -74,7 +74,7 @@ public class Bicycle {
     }
 
     public void turnLeft() {
-        System.out.println("Turning left starting angle: " + angle);
+        System.out.println("Turning left current angle: " + angle);
         if (speed > 40) {
             angle--;
         } else if (speed > 30) {
@@ -89,7 +89,7 @@ public class Bicycle {
     }
 
     public void turnRight() {
-        System.out.println("Turning right starting angle: " + angle);
+        System.out.println("Turning right current angle: " + angle);
         if (speed > 40) {
             angle++;
         } else if (speed > 30) {
