@@ -12,7 +12,28 @@ public class Bicycle {
     private String breakType;
     private float price;
     private static final int MAX_SPEED = 70;
-    private int angle = 0;
+    private int angleComparedToEntryPoint = 0;
+
+
+    public Bicycle(String name, String type, String color, int size) {
+        this.name = name;
+        this.type = type;
+        this.color = color;
+        this.size = size;
+        System.out.println("Created new bike with name:" + name + " and type: " + type);
+    }
+
+    public void setWheelsCount(int wheelsCount) {
+        this.wheelsCount = wheelsCount;
+    }
+
+    public void setHasBreak(boolean hasBreak) {
+        this.hasBreak = hasBreak;
+    }
+
+    public void setBreakType(String breakType) {
+        this.breakType = breakType;
+    }
 
     public Bicycle() {
         name = "Default Name";
@@ -26,7 +47,6 @@ public class Bicycle {
     }
 
     public void start() {
-
         System.out.println("Starting with speed: " + speed);
     }
 
@@ -37,71 +57,93 @@ public class Bicycle {
         System.out.println("Stopped");
     }
 
-    public void pressBreak() {
+    public void pressBreak () {
         System.out.println("Break is pressed on speed: " + speed);
         if (hasBreak) {
-            if (speed > 40) {
+            if(speed > 40) {
                 speed -= 5;
-            } else if (speed > 30) {
+            }
+            else if (speed > 30) {
                 speed -= 4;
-            } else if (speed > 20) {
+            }
+            else if (speed > 20) {
                 speed -= 3;
-            } else if (speed > 10) {
+            }
+            else if (speed > 10) {
                 speed -= 2;
-            } else {
-                speed--;
+            }
+            else {
+                speed --;
             }
         }
         System.out.println("Speed breaked to: " + speed);
     }
 
-    public void accelerate() {
+    public void accelerate () {
         System.out.println("Accelerate on speed: " + speed);
         if (speed < MAX_SPEED) {
-            if (speed > 40) {
+            if(speed > 40) {
                 speed += 1;
-            } else if (speed > 30) {
+            }
+            else if (speed > 30) {
                 speed += 2;
-            } else if (speed > 20) {
+            }
+            else if (speed > 20) {
                 speed += 3;
-            } else if (speed > 10) {
+            }
+            else if (speed > 10) {
                 speed += 4;
-            } else {
+            }
+            else {
                 speed += 5;
             }
         }
         System.out.println("Accelerate to: " + speed);
     }
 
-    public void turnLeft() {
-        System.out.println("Turning left current angle: " + angle);
-        if (speed > 40) {
-            angle--;
-        } else if (speed > 30) {
-            angle -= 2;
-        } else if (speed > 20) {
-            angle -= 3;
-        } else if (speed > 10) {
-            angle -= 4;
-        } else {
-            angle -= 5;
+    public void turnRight () {
+        System.out.println("Angle before turning right is: " + angleComparedToEntryPoint);
+        if(speed > 40) {
+            angleComparedToEntryPoint += 10;
         }
+        else if (speed > 30) {
+            angleComparedToEntryPoint += 20;
+        }
+        else if (speed > 20) {
+            angleComparedToEntryPoint += 30;
+        }
+        else if (speed > 10) {
+            angleComparedToEntryPoint += 40;
+        }
+        else {
+            angleComparedToEntryPoint +=50;
+        }
+        if(angleComparedToEntryPoint >= 360) {
+            angleComparedToEntryPoint = angleComparedToEntryPoint -360;
+        }
+        System.out.println("Current angle is : " + angleComparedToEntryPoint);
     }
 
-    public void turnRight() {
-        System.out.println("Turning right current angle: " + angle);
-        if (speed > 40) {
-            angle++;
-        } else if (speed > 30) {
-            angle += 2;
-        } else if (speed > 20) {
-            angle += 3;
-        } else if (speed > 10) {
-            angle += 4;
-        } else {
-            angle += 5;
+    public void turnLeft () {
+        System.out.println("Angle before turning left is: " + angleComparedToEntryPoint);
+        if(speed > 40) {
+            angleComparedToEntryPoint -= 10;
         }
+        else if (speed > 30) {
+            angleComparedToEntryPoint -= 20;
+        }
+        else if (speed > 20) {
+            angleComparedToEntryPoint -= 30;
+        }
+        else if (speed > 10) {
+            angleComparedToEntryPoint -= 40;
+        }
+        else {
+            angleComparedToEntryPoint -=50;
+        }
+        if(angleComparedToEntryPoint < 0) {
+            angleComparedToEntryPoint = 360 + angleComparedToEntryPoint;
+        }
+        System.out.println("Current angle is : " + angleComparedToEntryPoint);
     }
 }
-
-
